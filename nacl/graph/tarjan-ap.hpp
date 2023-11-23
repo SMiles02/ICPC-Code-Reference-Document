@@ -1,27 +1,17 @@
-void dfs(int x, int p) {
-  tin[x] = low[x] = ++t;
-  int ch = 0;
-  for (auto u : g[x])
-    if (u.first != p) {
-      if (!ins[u.second])
-        st.push(u.second), ins[u.second] = true;
-      if (tin[u.first]) {
-        low[x] = min(low[x], tin[u.first]);
-        continue;
-      }
-      ++ch;
-      dfs(u.first, x);
-      low[x] = min(low[x], low[u.first]);
-      if (low[u.first] >= tin[x]) {
-        cut[x] = true;
-        ++sz;
-        while (true) {
-          int e = st.top();
-          st.pop();
-          bcc[e] = sz;
-          if (e == u.second) break;
-        }
-      }
+void dfs(int v, int p = -1) {
+  visited[v] = true;
+  tin[v] = low[v] = timer++;
+  int children = 0;
+  for (int to : adj[v]) {
+    if (to == p) continue;
+    if (visited[to]) {
+      low[v] = min(low[v], tin[to]);
+    } else {
+      dfs(to, v);
+      low[v] = min(low[v], low[to]);
+      if (low[to] >= tin[v] && p != -1) IS_CUTPOINT(v);
+      ++children;
     }
-  if (ch == 1 && p == -1) cut[x] = false;
+  }
+  if (p == -1 && children > 1) IS_CUTPOINT(v);
 }
