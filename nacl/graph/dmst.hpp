@@ -32,7 +32,8 @@ template <typename T> struct DMST {
           int j = i, c = 0;
           while (j != root && fr[j] != i && c <= n)
             ++c, j = fr[j];
-          if (j == root || c > n) continue;
+          if (j == root || c > n)
+            continue;
           else {
             x = i;
             break;

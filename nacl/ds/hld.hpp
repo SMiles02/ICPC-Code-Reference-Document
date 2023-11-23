@@ -1,55 +1,63 @@
-/// source: KACTL
-
-template <bool VALS_EDGES> struct HLD {
-  int N, tim = 0;
-  vector<vi> adj;
-  vi par, siz, depth, rt, pos;
-  Node *tree;
-  HLD(vector<vi> adj_)
-      : N(sz(adj_)), adj(adj_), par(N, -1), siz(N, 1),
-        depth(N), rt(N), pos(N), tree(new Node(0, N)) {
-    dfsSz(0);
-    dfsHld(0);
+struct heavy_light_decomposition {
+  int n;
+  vector<vector<int>> edges;
+  vector<int> par, heavy, height, pos, head;
+  heavy_light_decomposition(int n)
+      : n(n), edges(n + 1), par(n + 1), heavy(n + 1),
+        height(n + 1), pos(n + 1), head(n + 1) {}
+  void add_edge(int x, int y) {
+    edges[x].push_back(y);
+    edges[y].push_back(x);
   }
-  void dfsSz(int v) {
-    if (par[v] != -1)
-      adj[v].erase(find(all(adj[v]), par[v]));
-    for (int &u : adj[v]) {
-      par[u] = v, depth[u] = depth[v] + 1;
-      dfsSz(u);
-      siz[v] += siz[u];
-      if (siz[u] > siz[adj[v][0]]) swap(u, adj[v][0]);
+  void heavy_dfs(int c, vector<int> &sub) {
+    heavy[c] = -1;
+    sub[c] = 1;
+    int max_size = 0;
+    for (int i : edges[c]) {
+      if (i != par[c]) {
+        par[i] = c;
+        height[i] = height[c] + 1;
+        heavy_dfs(i, sub);
+        sub[c] += sub[i];
+        if (sub[i] > max_size) {
+          heavy[c] = i;
+          max_size = sub[i];
+        }
+      }
     }
   }
-  void dfsHld(int v) {
-    pos[v] = tim++;
-    for (int u : adj[v]) {
-      rt[u] = (u == adj[v][0] ? rt[v] : u);
-      dfsHld(u);
+  void decompose(int c, int h, int &timer) {
+    pos[c] = timer++;
+    head[c] = h;
+    if (heavy[c] != -1) { decompose(heavy[c], h, timer); }
+    for (int i : edges[c]) {
+      if (i != par[c] && i != heavy[c]) {
+        decompose(i, i, timer);
+      }
     }
   }
-  template <class B> void process(int u, int v, B op) {
-    for (; rt[u] != rt[v]; v = par[rt[v]]) {
-      if (depth[rt[u]] > depth[rt[v]]) swap(u, v);
-      op(pos[rt[v]], pos[v] + 1);
+  void build() {
+    int timer = 0;
+    vector<int> sub(n + 1);
+    for (int i = 1; i <= n; ++i) {
+      if (sub[i] == 0) {
+        par[i] = 0;
+        height[i] = 0;
+        heavy_dfs(i, sub);
+        decompose(i, i, timer);
+      }
     }
-    if (depth[u] > depth[v]) swap(u, v);
-    op(pos[u] + VALS_EDGES, pos[v] + 1);
   }
-  void modifyPath(int u, int v, int val) {
-    process(u, v,
-            [&](int l, int r) { tree->add(l, r, val); });
-  }
-  int queryPath(int u,
-                int v) { // Modify depending on problem
-    int res = -1e9;
-    process(u, v, [&](int l, int r) {
-      res = max(res, tree->query(l, r));
-    });
-    return res;
-  }
-  int querySubtree(int v) { // modifySubtree is similar
-    return tree->query(pos[v] + VALS_EDGES,
-                       pos[v] + siz[v]);
+  int get_position(int x) { return pos[x]; }
+  vector<array<int, 2>> path_queries(int x, int y) {
+    vector<array<int, 2>> queries;
+    while (head[x] != head[y]) {
+      if (height[head[x]] > height[head[y]]) { swap(x, y); }
+      queries.push_back({pos[head[y]], pos[y]});
+      y = par[head[y]];
+    }
+    if (height[x] > height[y]) { swap(x, y); }
+    queries.push_back({pos[x], pos[y]});
+    return queries;
   }
 };

@@ -5,8 +5,10 @@ ll aliens(int k, int l, int r) {
     int m = (l + r) / 2;
     auto [f, s] = get_dp(m);
     if (s == k) return f - m * k;
-    if (s < k) r = m;
-    else l = m + 1;
+    if (s < k)
+      r = m;
+    else
+      l = m + 1;
   }
   return get_dp(l).first - l * k;
 }

@@ -45,7 +45,8 @@ auto matroid_intersection(int n, const vector<int> &w) {
     if (dis[n + 1].first < INF)
       for (int x = prev[n + 1]; x != n; x = prev[x])
         S.flip(x);
-    else break;
+    else
+      break;
 
     // S is the max-weighted independent set with size sz
   }

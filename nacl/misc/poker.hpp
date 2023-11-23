@@ -32,13 +32,20 @@ struct hand {
         if (vs[i] != vs[i - 1] + 1) str = 0;
     if (vs == vector<int>{12, 3, 2, 1, 0})
       str = 1, vs = {3, 2, 1, 0, -1};
-    if (str && flu) type = 9;
-    else if (vf[0] == 4) type = 8;
-    else if (vf[0] == 3 && vf[1] == 2) type = 7;
-    else if (str || flu) type = 5 + flu;
-    else if (vf[0] == 3) type = 4;
-    else if (vf[0] == 2) type = 2 + (vf[1] == 2);
-    else type = 1;
+    if (str && flu)
+      type = 9;
+    else if (vf[0] == 4)
+      type = 8;
+    else if (vf[0] == 3 && vf[1] == 2)
+      type = 7;
+    else if (str || flu)
+      type = 5 + flu;
+    else if (vf[0] == 3)
+      type = 4;
+    else if (vf[0] == 2)
+      type = 2 + (vf[1] == 2);
+    else
+      type = 1;
   }
   bool operator<(const hand &b) const {
     return make_tuple(type, vf, vs) <

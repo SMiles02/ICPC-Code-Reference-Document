@@ -8,8 +8,10 @@ double binary_search(double L, double R, int eps) {
   di l = {L}, r = {R}, m;
   while (r.i - l.i > 1LL << (52 - eps)) {
     m.i = (l.i + r.i) >> 1;
-    if (check(m.d)) r = m;
-    else l = m;
+    if (check(m.d))
+      r = m;
+    else
+      l = m;
   }
   return l.d;
 }

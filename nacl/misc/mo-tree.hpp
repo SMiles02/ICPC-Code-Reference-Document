@@ -10,8 +10,10 @@ void MoAlgoOnTree() {
     if (tin[u[i]] > tin[v[i]]) swap(u[i], v[i]);
     int z = GetLCA(u[i], v[i]);
     sp[i] = z[i];
-    if (z == u) l[i] = tin[u[i]], r[i] = tin[v[i]];
-    else l[i] = tout[u[i]], r[i] = tin[v[i]];
+    if (z == u)
+      l[i] = tin[u[i]], r[i] = tin[v[i]];
+    else
+      l[i] = tout[u[i]], r[i] = tin[v[i]];
     qr[i] = i;
   }
   sort(qr.begin(), qr.end(), [&](int i, int j) {

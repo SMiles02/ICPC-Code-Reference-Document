@@ -79,7 +79,8 @@ pair<Q, Q> rec(const vector<P> &s) {
     if (!valid(LC) && !valid(RC)) break;
     if (!valid(LC) || (valid(RC) && circ(H(RC), H(LC))))
       base = connect(RC, base->r());
-    else base = connect(base->r(), LC->r());
+    else
+      base = connect(base->r(), LC->r());
   }
   return {ra, rb};
 }

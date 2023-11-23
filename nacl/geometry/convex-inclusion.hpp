@@ -8,12 +8,17 @@ bool is_inside(const vector<pt> &c, pt p) {
   while (l < r - 1) {
     int m = (l + r) / 2;
     T a = cross(c[0], c[m], p);
-    if (a > 0) l = m;
-    else if (a < 0) r = m;
-    else return dot(c[0] - p, c[m] - p) <= 0;
+    if (a > 0)
+      l = m;
+    else if (a < 0)
+      r = m;
+    else
+      return dot(c[0] - p, c[m] - p) <= 0;
   }
-  if (l == r) return dot(c[0] - p, c[l] - p) <= 0;
-  else return cross(c[l], c[r], p) >= 0;
+  if (l == r)
+    return dot(c[0] - p, c[l] - p) <= 0;
+  else
+    return cross(c[l], c[r], p) >= 0;
 }
 
 // with preprocessing version

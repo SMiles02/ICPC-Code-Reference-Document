@@ -23,8 +23,10 @@ vector<array<int, 3>> manhattanMST(vector<P> ps) {
       sweep[-ps[i].y] = i;
     }
     for (P &p : ps)
-      if (k & 1) p.x = -p.x;
-      else swap(p.x, p.y);
+      if (k & 1)
+        p.x = -p.x;
+      else
+        swap(p.x, p.y);
   }
   return edges;
 }

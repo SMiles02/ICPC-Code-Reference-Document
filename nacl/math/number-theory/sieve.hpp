@@ -21,7 +21,8 @@ void sieve() {
       mu[i * p] = -mu[i];
       if (i % p == 0)
         phi[i * p] = phi[i] * p, mu[i * p] = 0;
-      else phi[i * p] = phi[i] * (p - 1);
+      else
+        phi[i * p] = phi[i] * (p - 1);
     }
   }
 }

@@ -17,7 +17,8 @@ struct Li_Chao {
     if (a[v](mid) < seg(mid)) {
       swap(a[v], seg);
       insert(seg, l, mid, v << 1);
-    } else insert(seg, mid + 1, r, v << 1 | 1);
+    } else
+      insert(seg, mid + 1, r, v << 1 | 1);
   }
   ll query(int x, int l, int r, int v = 1) {
     if (l == r) return a[v](x);

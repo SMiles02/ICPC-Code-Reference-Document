@@ -29,7 +29,8 @@ struct MCF {
           fromE[e.to] = &e;
           if (its[e.to] == q.end())
             its[e.to] = q.push({-dis[e.to], e.to});
-          else q.modify(its[e.to], {-dis[e.to], e.to});
+          else
+            q.modify(its[e.to], {-dis[e.to], e.to});
         }
       }
     }

@@ -41,8 +41,10 @@ Splay *nil = &Splay::nil;
 void rotate(Splay *x) {
   Splay *p = x->f;
   int d = x->dir();
-  if (!p->isr()) p->f->setCh(x, p->dir());
-  else x->f = p->f;
+  if (!p->isr())
+    p->f->setCh(x, p->dir());
+  else
+    x->f = p->f;
   p->setCh(x->ch[!d], d);
   x->setCh(p, !d);
   p->pull();
@@ -59,10 +61,12 @@ void splay(Splay *x) {
   reverse(begin(splayVec), end(splayVec));
   for (auto it : splayVec) it->push();
   while (!x->isr()) {
-    if (x->f->isr()) rotate(x);
+    if (x->f->isr())
+      rotate(x);
     else if (x->dir() == x->f->dir())
       rotate(x->f), rotate(x);
-    else rotate(x), rotate(x);
+    else
+      rotate(x), rotate(x);
   }
 }
 

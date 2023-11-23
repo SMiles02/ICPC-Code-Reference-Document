@@ -4,18 +4,22 @@ include:
       - Makefile:
         - misc/Makefile
     - 'How Did We Get Here?':
+      - The Basics:
+        - misc/basic.hpp
+      - Linux:
+        - misc/linux.tex
       - Macros:
         - misc/speed/macros.tex
         - misc/speed/macros.hpp
-      - Fast I/O:
-        - misc/speed/fast-io.hpp
-        - Kotlin:
-          - misc/speed/kotlin-io.kt
-      - constexpr:
-        - misc/speed/constexpr.tex
-        - misc/speed/constexpr.hpp
-      - Bump Allocator:
-        - misc/speed/bump-allocator.hpp
+      # - Fast I/O:
+      #   - misc/speed/fast-io.hpp
+      #   - Kotlin:
+      #     - misc/speed/kotlin-io.kt
+      # - constexpr:
+      #   - misc/speed/constexpr.tex
+      #   - misc/speed/constexpr.hpp
+      # - Bump Allocator:
+      #   - misc/speed/bump-allocator.hpp
     - Tools:
       - Floating Point Binary Search:
         - misc/float-binary-search.hpp
@@ -56,6 +60,10 @@ include:
     - Link-Cut Tree:
       - ds/lct.hpp
   - Graph:
+    - Floyd-Warshall:
+      - graph/floyd-warshall.hpp
+    - Dijkstra:
+      - graph/dijkstra.hpp
     - Modeling:
       - graph/model.tex
     - Matching/Flows:
@@ -88,6 +96,8 @@ include:
         - graph/tarjan-ap.hpp
       - Bridges:
         - graph/tarjan-b.hpp
+      - Block Cut Tree:
+        - graph/block-cut-tree.hpp
     - Triconnected Components:
       - graph/tcc.hpp
     - Centroid Decomposition:
@@ -144,6 +154,9 @@ include:
         - math/algebra/formal-power-series.hpp
     - Theorems:
       - math/theorems.tex
+  - Randomisation:
+    - Simulated Annealing:
+      - random/simulated-annealing.hpp
   - Numeric:
     - Barrett Reduction:
       - numeric/barrett-reduction.hpp
@@ -217,8 +230,6 @@ include:
       - strings/suffix-array.hpp
     - Suffix Tree:
       - strings/suffix-tree.hpp
-    - Cocke-Younger-Kasami Algorithm:
-      - strings/cyk.hpp
     - Z Value:
       - strings/z-value.hpp
     - Manacher's Algorithm:

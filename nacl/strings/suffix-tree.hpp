@@ -18,7 +18,8 @@ struct SAM {
     last = get_node(p->max_len + 1);
     while (p && !p->edge[c])
       p->edge[c] = last, p = p->green;
-    if (!p) last->green = root;
+    if (!p)
+      last->green = root;
     else {
       Node *pot_green = p->edge[c];
       if ((pot_green->max_len) == (p->max_len + 1))

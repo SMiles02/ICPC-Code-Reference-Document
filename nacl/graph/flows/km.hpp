@@ -50,8 +50,10 @@ struct KM {
           if (!vy[j]) d = min(d, slack[j]);
         for (int j = 0; j < n; j++) {
           if (vx[j]) lx[j] -= d;
-          if (vy[j]) ly[j] += d;
-          else slack[j] -= d;
+          if (vy[j])
+            ly[j] += d;
+          else
+            slack[j] -= d;
         }
       }
     }

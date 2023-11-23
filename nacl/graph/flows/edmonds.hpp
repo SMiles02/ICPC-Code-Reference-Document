@@ -35,7 +35,8 @@ struct Edmonds {
         toJoin.clear();
         if (used[bx] < used[bv])
           mark_path(v, x, b = bx, path);
-        else mark_path(x, v, b = bv, path);
+        else
+          mark_path(x, v, b = bv, path);
         for (int z : toJoin) base[getBase(z)] = b;
         for (int z : path)
           if (go(z)) return 1;

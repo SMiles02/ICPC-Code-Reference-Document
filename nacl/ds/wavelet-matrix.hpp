@@ -51,7 +51,8 @@ template <typename T> struct wavelet_matrix {
     for (int h = lg; h--;)
       if (b[h][i])
         i += b[h].cnt0 - b[h].rank0(i), res |= T(1) << h;
-      else i = b[h].rank0(i);
+      else
+        i = b[h].rank0(i);
     return res;
   }
   // query k-th smallest (0-based) in a[l, r)
@@ -64,7 +65,8 @@ template <typename T> struct wavelet_matrix {
         l += b[h].cnt0 - tl;
         r += b[h].cnt0 - tr;
         res |= T(1) << h;
-      } else l = tl, r = tr;
+      } else
+        l = tl, r = tr;
     }
     return res;
   }
@@ -78,7 +80,8 @@ template <typename T> struct wavelet_matrix {
         l += b[h].cnt0 - tl;
         r += b[h].cnt0 - tr;
         res += tr - tl;
-      } else l = tl, r = tr;
+      } else
+        l = tl, r = tr;
     }
     return res;
   }

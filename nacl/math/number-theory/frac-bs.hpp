@@ -16,7 +16,8 @@ QQ frac_bs(ll N) {
       if (QQ mid = hi.go(lo, len + step);
           mid.p > N || mid.q > N || dir ^ pred(mid))
         t++;
-      else len += step;
+      else
+        len += step;
     swap(lo, hi = hi.go(lo, len));
     (dir ? L : H) = !!len;
   }

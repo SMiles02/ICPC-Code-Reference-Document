@@ -9,7 +9,8 @@ void manacher(string s) {
   for (int b = 0, i = 1; i < n; i++) {
     if (z[b] + b >= i)
       z[i] = min(z[2 * b - i], b + z[b] - i);
-    else z[i] = 0;
+    else
+      z[i] = 0;
     while (i + z[i] + 1 < n && i - z[i] - 1 >= 0 &&
            s[i + z[i] + 1] == s[i - z[i] - 1])
       z[i]++;

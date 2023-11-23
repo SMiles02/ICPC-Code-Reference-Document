@@ -46,7 +46,8 @@ struct Maxclique {
                                                 T[j++].d =
                                                 k;
         expand(T, lev + 1);
-      } else if (sz(q) > sz(qmax)) qmax = q;
+      } else if (sz(q) > sz(qmax))
+        qmax = q;
       q.pop_back(), R.pop_back();
     }
   }

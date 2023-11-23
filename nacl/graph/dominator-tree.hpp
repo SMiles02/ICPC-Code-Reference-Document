@@ -66,8 +66,10 @@ struct DominatorTree {
       mom[u] = par[u];
       for (int w : cov[par[u]]) {
         eval(w);
-        if (cmp(sdom[mn[w]], par[u])) idom[w] = mn[w];
-        else idom[w] = par[u];
+        if (cmp(sdom[mn[w]], par[u]))
+          idom[w] = mn[w];
+        else
+          idom[w] = par[u];
       }
       cov[par[u]].clear();
     }

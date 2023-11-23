@@ -20,8 +20,10 @@ vector<pt> minkowski_sum(vector<pt> p, vector<pt> q) {
   // optional: make ret strictly convex (UB if degenerate)
   int now = 0;
   for (int i = 1; i < d.size(); i++) {
-    if (cross(d[i], d[now]) == 0) d[now] = d[now] + d[i];
-    else d[++now] = d[i];
+    if (cross(d[i], d[now]) == 0)
+      d[now] = d[now] + d[i];
+    else
+      d[++now] = d[i];
   }
   d.resize(now + 1);
   // end optional part
