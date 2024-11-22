@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1700710569 "/home/suneet/ICPC-Code-Reference-Document/codebook/main.tex" "/home/suneet/ICPC-Code-Reference-Document/codebook/main.pdf" "main" 1700710569
+["pdflatex"] 1732241919 "/home/suneet/ICPC-Code-Reference-Document/codebook/main.tex" "/home/suneet/ICPC-Code-Reference-Document/codebook/main.pdf" "main" 1732241919
   "/etc/texmf/web2c/texmf.cnf" 1686932441 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/suneet/ICPC-Code-Reference-Document/codebook/main.aux" 1700710569 8 a94a2480d3289e625eea47cd1b285758 ""
+  "/home/suneet/ICPC-Code-Reference-Document/codebook/main.aux" 0 -1 0 ""
   "/home/suneet/ICPC-Code-Reference-Document/codebook/main.tex" 1700702966 263 8b75e7ec23e80123d841a58de70b8196 ""
   "/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty" 1359763108 5949 3f3fd50a8cc94c3d4cbf4fc66cd3df1c ""
   "/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty" 1359763108 13829 94730e64147574077f8ecfea9bb69af4 ""
@@ -21,7 +21,7 @@
   "/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty" 1580683321 12560 ce3f59ceae9d9a27bfe037d6bf1d903c ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
   "/usr/share/texmf/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
-  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1687563915 8255895 aa5db5e189135eb041652dc58a4fa6a2 ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1718156637 8255634 fbffa93a4e25c1efe54d49ac6d034a76 ""
   "codebook.sty" 1700702834 3582 20b39b13c297830dd52fa4ae1839a354 ""
   "main.tex" 1700702966 263 8b75e7ec23e80123d841a58de70b8196 ""
   (generated)

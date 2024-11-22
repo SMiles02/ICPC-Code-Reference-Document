@@ -67,6 +67,8 @@ include:
     - Modeling:
       - graph/model.tex
     - Matching/Flows:
+      - Ford-Fulkerson (Scaling):
+        - graph/flows/ff-scaling.hpp
       - Dinic's Algorithm:
         - graph/flows/dinic.hpp
       - Minimum Cost Flow:
@@ -215,10 +217,10 @@ include:
       - geometry/closest-pair.hpp
     - Minimum Enclosing Circle:
       - geometry/min-enclosing-circle.hpp
-    - Delaunay Triangulation:
-      - geometry/delaunay.hpp
-      - Slower Version:
-        - geometry/delaunay-slow.hpp
+    # - Delaunay Triangulation:
+    #   - geometry/delaunay.hpp
+    #   - Slower Version:
+    #     - geometry/delaunay-slow.hpp
     - Half Plane Intersection:
       - geometry/half-plane-intersection.hpp
   - Strings:
